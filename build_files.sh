@@ -1,18 +1,11 @@
 #!/bin/bash
-# Build script for Vercel deploymentyment
+# Build script for Vercel deployment
 
-echo "Installing dependencies..."echo "Installing dependencies..."
+echo "Installing dependencies..."
+pip install -r requirements.txt
 
-
-
-
-
-
-
-
-
-
-echo "Build completed successfully!"python backend/manage.py collectstatic --noinputecho "Collecting static files..."export PYTHONPATH=$PYTHONPATH:$(pwd)echo "Setting up project path..."pip install -r vercel-requirements.txtpip install -r requirements.txt
+echo "Setting up project path..."
+export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 echo "Running Django migrations..."
 python backend/manage.py makemigrations
